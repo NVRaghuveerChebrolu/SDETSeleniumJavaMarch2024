@@ -144,7 +144,7 @@ public class ValidateDataDriven extends Library {
 			objXSSFWB.write(objFileOutPut);
 			}else {
 				int row1 = row + 1;
-				System.out.println("Run Mode is not marked as Yes in the test data excel");
+				System.out.println("Run Mode is not marked as Yes for row number: "+row1+ " in the test data excel");
 			}
 		}
 		objXSSFWB.close();

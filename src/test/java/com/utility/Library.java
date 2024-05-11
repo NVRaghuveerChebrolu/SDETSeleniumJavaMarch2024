@@ -19,6 +19,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.interactions.Actions;
 
 public class Library {
 	public static Properties objProp;
@@ -68,10 +69,13 @@ public class Library {
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(Constants.pageLoadTimeout));
 	}
 	
-	public void scrollIntoView(WebElement webtable) {
+	public void scrollIntoView(WebElement element) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView(true);",webtable);
+		js.executeScript("arguments[0].scrollIntoView(true);",element);
+
 	}
+	
+	
 	
 	public HashMap<String, String> ReadExcelTestDataFile(XSSFSheet objXSSFSheet, int row) {
 		// TODO Auto-generated method stub
