@@ -3,8 +3,8 @@ package com.oopsBasics;
 // Java Program to demonstrate the use of an instance variable
 // which get memory each time when we create an object of the class.
 class ConterWithAndWithOutStatic {
-	 int count = 6;// will get memory each time when the instance is created
-	//static int count = 6;// will get memory only once and retain its value
+	 //int count = 6;// will get memory each time when the instance is created
+	 int count = 6;// will get memory only once and retain its value
 	static int abc = 1;
 
 	ConterWithAndWithOutStatic() {
