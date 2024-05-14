@@ -86,7 +86,7 @@ public class ValidateAlertsInSelenium extends Library{
 		Alert objAlert = driver.switchTo().alert();
 		objAlert.sendKeys(Constants.PromptBoxAlertMessage);
 		objAlert.accept();
-		String ResultOfPromptBox = objDemoQaAlertsPOM.PromptBoxResult.getText();
+		String ResultOfPromptBox = driver.findElement(objDemoQaAlertsPOM.PromptBoxResult).getText();
 		Assert.assertEquals(ResultOfPromptBox, Constants.PrompBoxAlertResult, "Prompt Box Result is not validated");
 	}
   
