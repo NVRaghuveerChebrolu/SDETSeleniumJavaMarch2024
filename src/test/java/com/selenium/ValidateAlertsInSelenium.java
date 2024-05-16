@@ -51,10 +51,8 @@ public class ValidateAlertsInSelenium extends Library{
 	public void validateTimerAlert() {
 		System.out.println("inside validateTimerAlert");
 		AlertsPOM objDemoQaAlertsPOM = new AlertsPOM(driver);
-		JavascriptExecutor js = (JavascriptExecutor) driver; 
-		js.executeScript("arguments[0].scrollIntoView(true);",objDemoQaAlertsPOM.TimerAlertButton);
+		scrollIntoView(objDemoQaAlertsPOM.TimerAlertButton);
 		objDemoQaAlertsPOM.TimerAlertButton.click();
-		
 		//Explicit wait : Applicable for only one particular web element by providing a condition
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(Constants.ExplicitWaitDuration));
 		wait.until(ExpectedConditions.alertIsPresent());
