@@ -11,6 +11,9 @@ https://updates.jenkins.io/download/war/
 java -jar jenkins.war --enable-future-java --httpPort=8080
 https://www.toolsqa.com/selenium-webdriver/selenium-headless-browser-testing/
 https://dev.mysql.com/downloads/installer/
+https://github.com/SeleniumHQ/selenium/releases/tag/selenium-4.21.0
+java -jar selenium-server-4.21.0.jar standalone
+https://www.selenium.dev/documentation/grid/components/
 
 use below to install mysql
 https://www.youtube.com/watch?v=bcrAdegPdAI&ab_channel=AbhishekChaudhary\
