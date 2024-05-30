@@ -21,6 +21,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.AfterTest;
@@ -31,6 +32,7 @@ public class ValidateAlertsInSelenium extends Library{
   @Test(priority=-1)
   public void ValidateLoadingOfAlertPage() {
 	  System.out.println("inside ValidateLoadingOfAlertPage");
+	  ExtTest=ExtReports.createTest(new Object() {}.getClass().getEnclosingMethod().getName());
 	  driver.get(objProp.getProperty("AlertsURL"));
 	  PageLoadTimeOut();
   }
@@ -38,6 +40,7 @@ public class ValidateAlertsInSelenium extends Library{
   @Test()
   public void ValidateNormalAlert() {
 	  //driver.findElement(By.id("alertButton")).click();
+	  ExtTest=ExtReports.createTest(new Object() {}.getClass().getEnclosingMethod().getName());
 	  AlertsPOM objAlertsPOM = new AlertsPOM(driver);
 	 // objAlertsPOM.NormalAlert.click();
 	  objAlertsPOM.ClickOnNormalAlert();
@@ -50,6 +53,7 @@ public class ValidateAlertsInSelenium extends Library{
   @Test(priority = 1, dependsOnMethods = { "ValidateNormalAlert"})
 	public void validateTimerAlert() {
 		System.out.println("inside validateTimerAlert");
+		ExtTest=ExtReports.createTest(new Object() {}.getClass().getEnclosingMethod().getName());
 		AlertsPOM objDemoQaAlertsPOM = new AlertsPOM(driver);
 		scrollIntoView(objDemoQaAlertsPOM.TimerAlertButton);
 		objDemoQaAlertsPOM.TimerAlertButton.click();
@@ -66,6 +70,7 @@ public class ValidateAlertsInSelenium extends Library{
 	@Test(priority=2,dependsOnMethods= {"validateTimerAlert","ValidateNormalAlert"})
 	public void validateConfirmBoxAlert() {
 		System.out.println("inside validateConfirmBoxAlert");
+		ExtTest=ExtReports.createTest(new Object() {}.getClass().getEnclosingMethod().getName());
 		AlertsPOM objDemoQaAlertsPOM = new AlertsPOM(driver);
 		objDemoQaAlertsPOM.confirmAlertButton.click();
 		Alert objAlert = driver.switchTo().alert();
@@ -79,6 +84,7 @@ public class ValidateAlertsInSelenium extends Library{
 	@Test(priority=3,dependsOnMethods= {"validateConfirmBoxAlert","ValidateNormalAlert","validateTimerAlert"})
 	public void validatePromptBoxAlert() {
 		System.out.println("inside validatePromptBoxAlert");
+		ExtTest=ExtReports.createTest(new Object() {}.getClass().getEnclosingMethod().getName());
 		AlertsPOM objDemoQaAlertsPOM = new AlertsPOM(driver);
 		objDemoQaAlertsPOM.promptAlertButton.click();
 		Alert objAlert = driver.switchTo().alert();
@@ -92,15 +98,17 @@ public class ValidateAlertsInSelenium extends Library{
   public void beforeMethod() {
 	  System.out.println("Inside beforeMethod");
   }
-
+  
   @AfterMethod
-  public void afterMethod() {
-	  System.out.println("Inside afterMethod");
-  }
+	public void afterMethod(ITestResult result) {
+		System.out.println("inside afterMethod");
+		UpdatingResultInExtentReport(result);
+	}
 
   @BeforeClass
   public void beforeClass() {
 	  System.out.println("Inside beforeClass");
+	  StartExtentReport();
   }
 
   @AfterClass
@@ -117,6 +125,7 @@ public class ValidateAlertsInSelenium extends Library{
   @AfterTest
   public void afterTest() {
 	  System.out.println("Inside afterTest");
+	  FlushReport();
   }
 
   @BeforeSuite
