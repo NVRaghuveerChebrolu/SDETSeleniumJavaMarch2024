@@ -13,7 +13,7 @@ public class Constants {
 	public static String ConfirmBoxAlertText ="Do you confirm action?";
 	public static String ConfirmBoxResult ="You selected Cancel";
 	public static String PromptBoxAlertMessage="Hello! I am learning Alerts";
-	public static String PrompBoxAlertResult="You entered Hello! I am learning Alerts";
+	public static String PrompBoxAlertResult="You entered Hello! I am learning Alert";
 	public static String framesPageTitle="Frames";
 	public static String DemoQaTitle="DEMOQA";
 	public static String AssignmentFramespageTitle="Frames Example in Selenium webdriver";

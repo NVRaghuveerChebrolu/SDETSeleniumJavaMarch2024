@@ -70,7 +70,7 @@ public class Library {
 		ExtReports.attachReporter(objExtentHtmlReporter);
 		
 		ExtReports.setSystemInfo("TesterName", "Raghuveer");
-		ExtReports.setSystemInfo("Broswer", objProp.getProperty("Browser"));
+		ExtReports.setSystemInfo("Broswer", objProp.getProperty("browser"));
 		ExtReports.setSystemInfo("Environment", "UAT");
 		
 	}
