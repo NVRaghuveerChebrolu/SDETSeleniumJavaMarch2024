@@ -7,10 +7,11 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-	features=".\\src\\test\\java\\features\\ValidateAlerts.feature",
-	glue= {"stepdefinitions"},
-	plugin= {"pretty","html:Report1"},
-	dryRun=true,
+	features="src/test/resources/features",
+	glue= {"com.BDD"},
+	tags = "@Regression",
+	plugin= {"pretty","html:target/cucumber-reports.html"},
+	//dryRun=true,
 	monochrome=true
 		)
 public class TestRunner {
